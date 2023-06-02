@@ -22,5 +22,41 @@ namespace ListenEverywhere.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string folderPath {
+            get {
+                return ((string)(this["folderPath"]));
+            }
+            set {
+                this["folderPath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string descriptionSong {
+            get {
+                return ((string)(this["descriptionSong"]));
+            }
+            set {
+                this["descriptionSong"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public string modePlay {
+            get {
+                return ((string)(this["modePlay"]));
+            }
+            set {
+                this["modePlay"] = value;
+            }
+        }
     }
 }
