@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formMain));
             tlpBar = new TableLayoutPanel();
             tlpLists = new TableLayoutPanel();
@@ -41,11 +42,28 @@
             descriptionTrack = new Label();
             curTimeTrack = new Label();
             tableLayoutPanel1 = new TableLayoutPanel();
+            butVolume = new PictureBox();
+            butFolder = new PictureBox();
+            butMode = new PictureBox();
+            butPrev = new PictureBox();
+            butPlayPause = new PictureBox();
+            butNext = new PictureBox();
+            butStop = new PictureBox();
+            tlpVolumeSlider = new TableLayoutPanel();
+            timerMain = new System.Windows.Forms.Timer(components);
             tlpBar.SuspendLayout();
             tlpLists.SuspendLayout();
             tlpBarElements.SuspendLayout();
             tlpTrackDuration.SuspendLayout();
             tlpLabelsTrack.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)butVolume).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)butFolder).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)butMode).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)butPrev).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)butPlayPause).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)butNext).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)butStop).BeginInit();
             SuspendLayout();
             // 
             // tlpBar
@@ -201,17 +219,25 @@
             // 
             // tableLayoutPanel1
             // 
-            tableLayoutPanel1.ColumnCount = 10;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.ColumnCount = 8;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel1.Controls.Add(butVolume, 1, 0);
+            tableLayoutPanel1.Controls.Add(butFolder, 2, 0);
+            tableLayoutPanel1.Controls.Add(butMode, 3, 0);
+            tableLayoutPanel1.Controls.Add(butPrev, 4, 0);
+            tableLayoutPanel1.Controls.Add(butPlayPause, 5, 0);
+            tableLayoutPanel1.Controls.Add(butNext, 6, 0);
+            tableLayoutPanel1.Controls.Add(butStop, 7, 0);
+            tableLayoutPanel1.Controls.Add(tlpVolumeSlider, 0, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(3, 64);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -220,11 +246,109 @@
             tableLayoutPanel1.Size = new Size(788, 44);
             tableLayoutPanel1.TabIndex = 2;
             // 
+            // butVolume
+            // 
+            butVolume.Anchor = AnchorStyles.Bottom;
+            butVolume.Image = Properties.Resources.volumeon;
+            butVolume.Location = new Point(250, 9);
+            butVolume.Margin = new Padding(0);
+            butVolume.Name = "butVolume";
+            butVolume.Size = new Size(50, 35);
+            butVolume.SizeMode = PictureBoxSizeMode.Zoom;
+            butVolume.TabIndex = 0;
+            butVolume.TabStop = false;
+            // 
+            // butFolder
+            // 
+            butFolder.Anchor = AnchorStyles.Bottom;
+            butFolder.Image = Properties.Resources.folder;
+            butFolder.Location = new Point(328, 9);
+            butFolder.Margin = new Padding(0);
+            butFolder.Name = "butFolder";
+            butFolder.Size = new Size(50, 35);
+            butFolder.SizeMode = PictureBoxSizeMode.Zoom;
+            butFolder.TabIndex = 1;
+            butFolder.TabStop = false;
+            // 
+            // butMode
+            // 
+            butMode.Anchor = AnchorStyles.Bottom;
+            butMode.Image = Properties.Resources.random;
+            butMode.Location = new Point(406, 9);
+            butMode.Margin = new Padding(0);
+            butMode.Name = "butMode";
+            butMode.Size = new Size(50, 35);
+            butMode.SizeMode = PictureBoxSizeMode.Zoom;
+            butMode.TabIndex = 2;
+            butMode.TabStop = false;
+            // 
+            // butPrev
+            // 
+            butPrev.Anchor = AnchorStyles.Bottom;
+            butPrev.Image = Properties.Resources.previous;
+            butPrev.Location = new Point(484, 9);
+            butPrev.Margin = new Padding(0);
+            butPrev.Name = "butPrev";
+            butPrev.Size = new Size(50, 35);
+            butPrev.SizeMode = PictureBoxSizeMode.Zoom;
+            butPrev.TabIndex = 3;
+            butPrev.TabStop = false;
+            // 
+            // butPlayPause
+            // 
+            butPlayPause.Anchor = AnchorStyles.Bottom;
+            butPlayPause.Image = Properties.Resources.play;
+            butPlayPause.Location = new Point(562, 9);
+            butPlayPause.Margin = new Padding(0);
+            butPlayPause.Name = "butPlayPause";
+            butPlayPause.Size = new Size(50, 35);
+            butPlayPause.SizeMode = PictureBoxSizeMode.Zoom;
+            butPlayPause.TabIndex = 4;
+            butPlayPause.TabStop = false;
+            // 
+            // butNext
+            // 
+            butNext.Anchor = AnchorStyles.Bottom;
+            butNext.Image = Properties.Resources.next;
+            butNext.Location = new Point(640, 9);
+            butNext.Margin = new Padding(0);
+            butNext.Name = "butNext";
+            butNext.Size = new Size(50, 35);
+            butNext.SizeMode = PictureBoxSizeMode.Zoom;
+            butNext.TabIndex = 5;
+            butNext.TabStop = false;
+            // 
+            // butStop
+            // 
+            butStop.Anchor = AnchorStyles.Bottom;
+            butStop.Image = Properties.Resources.stop;
+            butStop.Location = new Point(721, 9);
+            butStop.Margin = new Padding(0);
+            butStop.Name = "butStop";
+            butStop.Size = new Size(50, 35);
+            butStop.SizeMode = PictureBoxSizeMode.Zoom;
+            butStop.TabIndex = 6;
+            butStop.TabStop = false;
+            // 
+            // tlpVolumeSlider
+            // 
+            tlpVolumeSlider.ColumnCount = 2;
+            tlpVolumeSlider.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tlpVolumeSlider.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tlpVolumeSlider.Dock = DockStyle.Fill;
+            tlpVolumeSlider.Location = new Point(0, 0);
+            tlpVolumeSlider.Margin = new Padding(0);
+            tlpVolumeSlider.Name = "tlpVolumeSlider";
+            tlpVolumeSlider.RowCount = 1;
+            tlpVolumeSlider.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tlpVolumeSlider.Size = new Size(236, 44);
+            tlpVolumeSlider.TabIndex = 7;
+            // 
             // formMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(40, 40, 40);
+            BackColor = Color.Black;
             ClientSize = new Size(800, 450);
             Controls.Add(tlpBar);
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -237,6 +361,14 @@
             tlpTrackDuration.PerformLayout();
             tlpLabelsTrack.ResumeLayout(false);
             tlpLabelsTrack.PerformLayout();
+            tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)butVolume).EndInit();
+            ((System.ComponentModel.ISupportInitialize)butFolder).EndInit();
+            ((System.ComponentModel.ISupportInitialize)butMode).EndInit();
+            ((System.ComponentModel.ISupportInitialize)butPrev).EndInit();
+            ((System.ComponentModel.ISupportInitialize)butPlayPause).EndInit();
+            ((System.ComponentModel.ISupportInitialize)butNext).EndInit();
+            ((System.ComponentModel.ISupportInitialize)butStop).EndInit();
             ResumeLayout(false);
         }
 
@@ -254,5 +386,14 @@
         private Label totTimeTrack;
         private Label descriptionTrack;
         private Label curTimeTrack;
+        private PictureBox butVolume;
+        private PictureBox butFolder;
+        private PictureBox butMode;
+        private PictureBox butPrev;
+        private PictureBox butPlayPause;
+        private PictureBox butNext;
+        private PictureBox butStop;
+        private TableLayoutPanel tlpVolumeSlider;
+        private System.Windows.Forms.Timer timerMain;
     }
 }
