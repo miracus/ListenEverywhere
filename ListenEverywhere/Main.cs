@@ -322,5 +322,6 @@ namespace ListenEverywhere
             pictureBox.Anchor = AnchorStyles.Bottom;
         }
         #endregion
+>>>>>>>>> Temporary merge branch 2
     }
 }
