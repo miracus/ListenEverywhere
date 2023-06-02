@@ -12,6 +12,9 @@ namespace ListenEverywhere
         IWavePlayer? _wavePlayer;
         AudioFileReader? _audioFileReader;
         bool init = false;
+        Image prevImage;
+        private AudioTrackItem currentAudioTrackItem;
+
         #endregion
         public Main()
         {
@@ -96,11 +99,11 @@ namespace ListenEverywhere
                     string coverFilePath = filesPicture[0];
                     newTrack.Picture = new Bitmap(coverFilePath);
                 }
-
                 newTrack.MusicPlay += Main_NewTrack_MusicPlay;
                 newTrack.MusicHover += Main_NewTrack_MusicHover;
                 newTrack.Pause += Pause;
                 newTrack.PlayAfterPause += PlayAfterPause;
+                currentAudioTrackItem = newTrack;
                 audioTrackItemList.Add(newTrack);
                 flpTrack.Controls.Add(newTrack);
 
@@ -127,8 +130,10 @@ namespace ListenEverywhere
         }
 
         #endregion
-        
+
         #region Play and Mode
+
+        AudioTrackItem play;
         private void Main_NewTrack_MusicPlay(object sender, EventArgs e)
         {
             if (sender is AudioTrackItem audioTrackItem)
@@ -138,13 +143,22 @@ namespace ListenEverywhere
                 {
                     if (item == track)
                     {
-                        item.ButtonPlay = true;
+                        play = track;
+                        track.ButtonPlay = true;
+                        Properties.Settings.Default.modePlay = "Play";
+                        //prevImage = item.Picture;
+                        //item.Picture = Properties.Resources.finished_gif;
                     }
                     else
                     {
                         item.ButtonPlay = false;
+                        Properties.Settings.Default.modePlay = "Pause";
+                        //if (prevImage != null)
+                        //{
+                        //    item.Picture = prevImage;
+                        //}
                     }
-                    
+
                 }
                 Main_Play(track);
             }
@@ -176,20 +190,47 @@ namespace ListenEverywhere
             _wavePlayer.Play();
             timerMainTrack.Start();
             Properties.Settings.Default.modePlay = "Play";
-        }
-        public void Pause(object sender, EventArgs e)
-        {
-            _wavePlayer?.Pause();
-            Properties.Settings.Default.modePlay = "Pause";
+            foreach (var item in audioTrackItemList)
+            {
+                if (item == track)
+                {
+                    track.IsPlaying = true;
+                }
+                else
+                {
+                    track.IsPlaying = false;
+                }
+
+            }
+
         }
 
-        public void PlayAfterPause(object sender, EventArgs e)
+        public class Song
         {
+            public bool IsPlaying { get; set; }
+        }
+
+        public void Pause(object? sender, EventArgs e)
+        {
+            play.ButtonPlay = false;
+            _wavePlayer?.Pause();
+            Properties.Settings.Default.modePlay = "Pause";
+            currentAudioTrackItem.ButtonPlay = false;
+            currentAudioTrackItem.BackgroundImage = Properties.Resources.pause;
+        }
+
+        public void PlayAfterPause(object? sender, EventArgs e)
+        {
+            play.ButtonPlay = true;
             _wavePlayer?.Play();
             Properties.Settings.Default.modePlay = "Play";
+            currentAudioTrackItem.ButtonPlay = true;
+            currentAudioTrackItem.BackgroundImage = Properties.Resources.play;
         }
+
+
         #endregion
-        
+
         #region Audio Track Bar Event
         private void ButtonControlClick(object sender, EventArgs e)
         {
@@ -263,8 +304,7 @@ namespace ListenEverywhere
         #endregion
 
 
-        #endregion
-        
+        #endregion       
         #region Button Audio Track Bar Animation
 
         
@@ -282,7 +322,5 @@ namespace ListenEverywhere
             pictureBox.Anchor = AnchorStyles.Bottom;
         }
         #endregion
-
-
     }
 }

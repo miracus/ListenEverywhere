@@ -21,8 +21,10 @@ namespace ListenEverywhere.CustomElements
         public bool ButtonPlay { get; set; }
         public event EventHandler Pause;
         public event EventHandler PlayAfterPause;
+        public event EventHandler MusicPlay;
+        public event EventHandler MusicHover;
+        private Image previousImage;
         #endregion
-
 
         public event EventHandler bPlay;
         public AudioTrackItem()
@@ -32,19 +34,34 @@ namespace ListenEverywhere.CustomElements
             AudioRightItem_RecursiveHandlerDoubleClick(itemArea);
         }
 
+        
 
-        #region Timers
-        private void AudioTrack_display_Tick(object sender, EventArgs e)
+        public void UpdatePlayButtonImage()
         {
             if (ButtonPlay)
             {
                 playButton.BackgroundImage = Properties.Resources.pause;
-            } 
+            }
             else
             {
                 playButton.BackgroundImage = Properties.Resources.play;
             }
-            
+        }
+
+        #region Timers
+        private void AudioTrack_display_Tick(object sender, EventArgs e)
+        {
+
+            if (ButtonPlay)
+            {
+                playButton.BackgroundImage = Properties.Resources.pause;
+            }
+            else
+            {
+                playButton.BackgroundImage = Properties.Resources.play;
+            }
+
+
             if (ButtonVisible)
             {
                 if (!playButton.Visible)
@@ -70,7 +87,6 @@ namespace ListenEverywhere.CustomElements
         }
 
         #endregion
-
         #region Play Button
         private void playButton_Click(object sender, EventArgs e)
         {
@@ -78,37 +94,37 @@ namespace ListenEverywhere.CustomElements
             {
                 if (Properties.Settings.Default.modePlay == "Pause")
                 {
-                    //_wavePlayer?.Play();
-                    PlayAfterPause?.Invoke(sender, e);
                     ButtonPlay = true;
-                    //Properties.Settings.Default.modePlay = "Play";
+                    PlayAfterPause?.Invoke(sender, e);
                     return;
                 }
                 if (Properties.Settings.Default.modePlay == "Play")
                 {
-                    //_wavePlayer?.Pause();
-                    Pause?.Invoke(sender, e);
                     ButtonPlay = false;
-                    //Properties.Settings.Default.modePlay = "Pause";
+                    Pause?.Invoke(sender, e);
                     return;
                 }
 
+                ButtonPlay = true;
                 MusicPlay?.Invoke(this, e);
-                Properties.Settings.Default.modePlay = "Play";
                 return;
             }
             else
             {
+                if (Properties.Settings.Default.modePlay == "Pause")
+                {
+                    if(IsPlaying)
+                    {
+                        ButtonPlay = true;
+                        PlayAfterPause?.Invoke(sender, e);
+                        return;
+                    }
+                }
+                ButtonPlay = true;
                 MusicPlay?.Invoke(this, e);
-                Properties.Settings.Default.modePlay = "Play";
                 return;
             }
         }
-        #endregion
-
-        #region User Events
-        public event EventHandler MusicPlay;
-        public event EventHandler MusicHover;
         #endregion
         #region Recursive Hover
         void AudioTrackItem_RecursiveHandlerHover(Control element)
@@ -147,9 +163,6 @@ namespace ListenEverywhere.CustomElements
         {
             MusicPlay?.Invoke(this, e);
         }
-
-
-
         #endregion
         #region Options
         [Category("Властивості трека")]
@@ -207,6 +220,19 @@ namespace ListenEverywhere.CustomElements
                 pictureBox.Image = value;
             }
         }
+        //[Category("Властивості трека")]
+        //public Image ButtonImage
+        //{
+        //    get
+        //    {
+        //        return playButton.BackgroundImage;
+        //    }
+        //    set
+        //    {
+        //        playButton.BackgroundImage = value;
+        //    }
+        //}
         #endregion
+
     }
 }

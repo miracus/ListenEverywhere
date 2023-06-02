@@ -399,6 +399,104 @@
             timerMainTrack.Interval = 1000;
             timerMainTrack.Tick += timerMainTrack_Tick;
             // 
+            // butVolume
+            // 
+            butVolume.Anchor = AnchorStyles.Bottom;
+            butVolume.Image = Properties.Resources.volumeon;
+            butVolume.Location = new Point(250, 9);
+            butVolume.Margin = new Padding(0);
+            butVolume.Name = "butVolume";
+            butVolume.Size = new Size(50, 35);
+            butVolume.SizeMode = PictureBoxSizeMode.Zoom;
+            butVolume.TabIndex = 0;
+            butVolume.TabStop = false;
+            // 
+            // butFolder
+            // 
+            butFolder.Anchor = AnchorStyles.Bottom;
+            butFolder.Image = Properties.Resources.folder;
+            butFolder.Location = new Point(328, 9);
+            butFolder.Margin = new Padding(0);
+            butFolder.Name = "butFolder";
+            butFolder.Size = new Size(50, 35);
+            butFolder.SizeMode = PictureBoxSizeMode.Zoom;
+            butFolder.TabIndex = 1;
+            butFolder.TabStop = false;
+            // 
+            // butMode
+            // 
+            butMode.Anchor = AnchorStyles.Bottom;
+            butMode.Image = Properties.Resources.random;
+            butMode.Location = new Point(406, 9);
+            butMode.Margin = new Padding(0);
+            butMode.Name = "butMode";
+            butMode.Size = new Size(50, 35);
+            butMode.SizeMode = PictureBoxSizeMode.Zoom;
+            butMode.TabIndex = 2;
+            butMode.TabStop = false;
+            // 
+            // butPrev
+            // 
+            butPrev.Anchor = AnchorStyles.Bottom;
+            butPrev.Image = Properties.Resources.previous;
+            butPrev.Location = new Point(484, 9);
+            butPrev.Margin = new Padding(0);
+            butPrev.Name = "butPrev";
+            butPrev.Size = new Size(50, 35);
+            butPrev.SizeMode = PictureBoxSizeMode.Zoom;
+            butPrev.TabIndex = 3;
+            butPrev.TabStop = false;
+            // 
+            // butPlayPause
+            // 
+            butPlayPause.Anchor = AnchorStyles.Bottom;
+            butPlayPause.Image = Properties.Resources.play;
+            butPlayPause.Location = new Point(562, 9);
+            butPlayPause.Margin = new Padding(0);
+            butPlayPause.Name = "butPlayPause";
+            butPlayPause.Size = new Size(50, 35);
+            butPlayPause.SizeMode = PictureBoxSizeMode.Zoom;
+            butPlayPause.TabIndex = 4;
+            butPlayPause.TabStop = false;
+            // 
+            // butNext
+            // 
+            butNext.Anchor = AnchorStyles.Bottom;
+            butNext.Image = Properties.Resources.next;
+            butNext.Location = new Point(640, 9);
+            butNext.Margin = new Padding(0);
+            butNext.Name = "butNext";
+            butNext.Size = new Size(50, 35);
+            butNext.SizeMode = PictureBoxSizeMode.Zoom;
+            butNext.TabIndex = 5;
+            butNext.TabStop = false;
+            // 
+            // butStop
+            // 
+            butStop.Anchor = AnchorStyles.Bottom;
+            butStop.Image = Properties.Resources.stop;
+            butStop.Location = new Point(721, 9);
+            butStop.Margin = new Padding(0);
+            butStop.Name = "butStop";
+            butStop.Size = new Size(50, 35);
+            butStop.SizeMode = PictureBoxSizeMode.Zoom;
+            butStop.TabIndex = 6;
+            butStop.TabStop = false;
+            // 
+            // tlpVolumeSlider
+            // 
+            tlpVolumeSlider.ColumnCount = 2;
+            tlpVolumeSlider.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tlpVolumeSlider.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tlpVolumeSlider.Dock = DockStyle.Fill;
+            tlpVolumeSlider.Location = new Point(0, 0);
+            tlpVolumeSlider.Margin = new Padding(0);
+            tlpVolumeSlider.Name = "tlpVolumeSlider";
+            tlpVolumeSlider.RowCount = 1;
+            tlpVolumeSlider.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tlpVolumeSlider.Size = new Size(236, 44);
+            tlpVolumeSlider.TabIndex = 7;
+            // 
             // formMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
