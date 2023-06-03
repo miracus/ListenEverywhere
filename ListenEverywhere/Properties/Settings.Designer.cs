@@ -49,13 +49,49 @@ namespace ListenEverywhere.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string modePlay {
             get {
                 return ((string)(this["modePlay"]));
             }
             set {
                 this["modePlay"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string butMode {
+            get {
+                return ((string)(this["butMode"]));
+            }
+            set {
+                this["butMode"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string butVolume {
+            get {
+                return ((string)(this["butVolume"]));
+            }
+            set {
+                this["butVolume"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int levelVolume {
+            get {
+                return ((int)(this["levelVolume"]));
+            }
+            set {
+                this["levelVolume"] = value;
             }
         }
     }

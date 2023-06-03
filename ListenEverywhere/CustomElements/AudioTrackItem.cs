@@ -52,14 +52,18 @@ namespace ListenEverywhere.CustomElements
         private void AudioTrack_display_Tick(object sender, EventArgs e)
         {
 
-            if (ButtonPlay)
-            {
-                playButton.BackgroundImage = Properties.Resources.pause;
+            if (Properties.Settings.Default.modePlay != "Stop")
+            { 
+                if (ButtonPlay)
+                {
+                    playButton.BackgroundImage = Properties.Resources.pause;
+                }
+                else
+                {
+                    playButton.BackgroundImage = Properties.Resources.play;
+                }
             }
-            else
-            {
-                playButton.BackgroundImage = Properties.Resources.play;
-            }
+
 
 
             if (ButtonVisible)
@@ -220,18 +224,19 @@ namespace ListenEverywhere.CustomElements
                 pictureBox.Image = value;
             }
         }
-        //[Category("Властивості трека")]
-        //public Image ButtonImage
-        //{
-        //    get
-        //    {
-        //        return playButton.BackgroundImage;
-        //    }
-        //    set
-        //    {
-        //        playButton.BackgroundImage = value;
-        //    }
-        //}
+
+        [Category("Властивості трека")]
+        public Image ButtonPicture
+        {
+            get
+            {
+                return playButton.BackgroundImage;
+            }
+            set
+            {
+                playButton.BackgroundImage = value;
+            }
+        }
         #endregion
 
     }

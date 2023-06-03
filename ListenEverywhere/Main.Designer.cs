@@ -81,9 +81,9 @@
             tlpBar.Location = new Point(0, 0);
             tlpBar.Name = "tlpBar";
             tlpBar.RowCount = 2;
-            tlpBar.RowStyles.Add(new RowStyle(SizeType.Percent, 75F));
-            tlpBar.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
-            tlpBar.Size = new Size(800, 450);
+            tlpBar.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tlpBar.RowStyles.Add(new RowStyle(SizeType.Percent, 0F));
+            tlpBar.Size = new Size(804, 450);
             tlpBar.TabIndex = 0;
             // 
             // tlpLists
@@ -98,17 +98,17 @@
             tlpLists.Name = "tlpLists";
             tlpLists.RowCount = 1;
             tlpLists.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tlpLists.Size = new Size(788, 324);
+            tlpLists.Size = new Size(792, 324);
             tlpLists.TabIndex = 0;
             // 
             // flpTrack
             // 
             flpTrack.AutoScroll = true;
             flpTrack.Dock = DockStyle.Fill;
-            flpTrack.Location = new Point(236, 0);
+            flpTrack.Location = new Point(237, 0);
             flpTrack.Margin = new Padding(0);
             flpTrack.Name = "flpTrack";
-            flpTrack.Size = new Size(552, 324);
+            flpTrack.Size = new Size(555, 324);
             flpTrack.TabIndex = 0;
             // 
             // flpAlbom
@@ -118,7 +118,7 @@
             flpAlbom.Location = new Point(0, 0);
             flpAlbom.Margin = new Padding(0);
             flpAlbom.Name = "flpAlbom";
-            flpAlbom.Size = new Size(236, 324);
+            flpAlbom.Size = new Size(237, 324);
             flpAlbom.TabIndex = 1;
             // 
             // tlpBarElements
@@ -133,10 +133,10 @@
             tlpBarElements.Margin = new Padding(0);
             tlpBarElements.Name = "tlpBarElements";
             tlpBarElements.RowCount = 3;
-            tlpBarElements.RowStyles.Add(new RowStyle(SizeType.Percent, 11.1111107F));
-            tlpBarElements.RowStyles.Add(new RowStyle(SizeType.Percent, 44.4444427F));
-            tlpBarElements.RowStyles.Add(new RowStyle(SizeType.Percent, 44.4444427F));
-            tlpBarElements.Size = new Size(794, 111);
+            tlpBarElements.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            tlpBarElements.RowStyles.Add(new RowStyle(SizeType.Percent, 40F));
+            tlpBarElements.RowStyles.Add(new RowStyle(SizeType.Percent, 40F));
+            tlpBarElements.Size = new Size(798, 111);
             tlpBarElements.TabIndex = 1;
             // 
             // tlpTrackDuration
@@ -151,7 +151,7 @@
             tlpTrackDuration.Name = "tlpTrackDuration";
             tlpTrackDuration.RowCount = 1;
             tlpTrackDuration.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tlpTrackDuration.Size = new Size(794, 12);
+            tlpTrackDuration.Size = new Size(798, 22);
             tlpTrackDuration.TabIndex = 0;
             tlpTrackDuration.MouseClick += tlpProgress_MouseClick;
             // 
@@ -163,7 +163,7 @@
             labelDuration.ForeColor = Color.White;
             labelDuration.Location = new Point(3, 0);
             labelDuration.Name = "labelDuration";
-            labelDuration.Size = new Size(1, 12);
+            labelDuration.Size = new Size(1, 22);
             labelDuration.TabIndex = 0;
             labelDuration.MouseClick += tlpProgress_MouseClick;
             // 
@@ -177,11 +177,11 @@
             tlpLabelsTrack.Controls.Add(labelDescriptionTrack, 1, 0);
             tlpLabelsTrack.Controls.Add(labelCurTimeTrack, 0, 0);
             tlpLabelsTrack.Dock = DockStyle.Fill;
-            tlpLabelsTrack.Location = new Point(3, 15);
+            tlpLabelsTrack.Location = new Point(3, 25);
             tlpLabelsTrack.Name = "tlpLabelsTrack";
             tlpLabelsTrack.RowCount = 1;
             tlpLabelsTrack.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tlpLabelsTrack.Size = new Size(788, 43);
+            tlpLabelsTrack.Size = new Size(792, 38);
             tlpLabelsTrack.TabIndex = 1;
             // 
             // labelTotTimeTrack
@@ -190,9 +190,9 @@
             labelTotTimeTrack.Dock = DockStyle.Fill;
             labelTotTimeTrack.Font = new Font("Bahnschrift Condensed", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             labelTotTimeTrack.ForeColor = SystemColors.ActiveCaption;
-            labelTotTimeTrack.Location = new Point(632, 0);
+            labelTotTimeTrack.Location = new Point(636, 0);
             labelTotTimeTrack.Name = "labelTotTimeTrack";
-            labelTotTimeTrack.Size = new Size(153, 43);
+            labelTotTimeTrack.Size = new Size(153, 38);
             labelTotTimeTrack.TabIndex = 0;
             labelTotTimeTrack.Text = "time";
             labelTotTimeTrack.TextAlign = ContentAlignment.TopRight;
@@ -203,10 +203,10 @@
             labelDescriptionTrack.Dock = DockStyle.Fill;
             labelDescriptionTrack.Font = new Font("Bahnschrift Condensed", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             labelDescriptionTrack.ForeColor = SystemColors.ActiveCaption;
-            labelDescriptionTrack.Location = new Point(157, 0);
+            labelDescriptionTrack.Location = new Point(158, 0);
             labelDescriptionTrack.Margin = new Padding(0);
             labelDescriptionTrack.Name = "labelDescriptionTrack";
-            labelDescriptionTrack.Size = new Size(472, 43);
+            labelDescriptionTrack.Size = new Size(475, 38);
             labelDescriptionTrack.TabIndex = 1;
             labelDescriptionTrack.Text = "descriptionTrack";
             labelDescriptionTrack.TextAlign = ContentAlignment.MiddleCenter;
@@ -219,7 +219,7 @@
             labelCurTimeTrack.ForeColor = SystemColors.ActiveCaption;
             labelCurTimeTrack.Location = new Point(3, 0);
             labelCurTimeTrack.Name = "labelCurTimeTrack";
-            labelCurTimeTrack.Size = new Size(151, 43);
+            labelCurTimeTrack.Size = new Size(152, 38);
             labelCurTimeTrack.TabIndex = 2;
             labelCurTimeTrack.Text = "time";
             // 
@@ -245,21 +245,21 @@
             tlpControlElement.Controls.Add(butStop, 7, 0);
             tlpControlElement.Controls.Add(tlpVolumeSlider, 0, 0);
             tlpControlElement.Dock = DockStyle.Fill;
-            tlpControlElement.Location = new Point(3, 64);
+            tlpControlElement.Location = new Point(3, 69);
             tlpControlElement.Name = "tlpControlElement";
             tlpControlElement.RowCount = 1;
             tlpControlElement.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tlpControlElement.Size = new Size(788, 44);
+            tlpControlElement.Size = new Size(792, 39);
             tlpControlElement.TabIndex = 2;
             // 
             // butVolume
             // 
             butVolume.Anchor = AnchorStyles.Bottom;
             butVolume.Image = Properties.Resources.volumeon;
-            butVolume.Location = new Point(250, 6);
+            butVolume.Location = new Point(251, 4);
             butVolume.Margin = new Padding(0);
             butVolume.Name = "butVolume";
-            butVolume.Size = new Size(50, 38);
+            butVolume.Size = new Size(50, 35);
             butVolume.SizeMode = PictureBoxSizeMode.Zoom;
             butVolume.TabIndex = 0;
             butVolume.TabStop = false;
@@ -271,10 +271,10 @@
             // 
             butFolder.Anchor = AnchorStyles.Bottom;
             butFolder.Image = Properties.Resources.folder;
-            butFolder.Location = new Point(328, 6);
+            butFolder.Location = new Point(330, 4);
             butFolder.Margin = new Padding(0);
             butFolder.Name = "butFolder";
-            butFolder.Size = new Size(50, 38);
+            butFolder.Size = new Size(50, 35);
             butFolder.SizeMode = PictureBoxSizeMode.Zoom;
             butFolder.TabIndex = 1;
             butFolder.TabStop = false;
@@ -286,10 +286,10 @@
             // 
             butMode.Anchor = AnchorStyles.Bottom;
             butMode.Image = Properties.Resources.random;
-            butMode.Location = new Point(406, 6);
+            butMode.Location = new Point(409, 4);
             butMode.Margin = new Padding(0);
             butMode.Name = "butMode";
-            butMode.Size = new Size(50, 38);
+            butMode.Size = new Size(50, 35);
             butMode.SizeMode = PictureBoxSizeMode.Zoom;
             butMode.TabIndex = 2;
             butMode.TabStop = false;
@@ -301,10 +301,10 @@
             // 
             butPrev.Anchor = AnchorStyles.Bottom;
             butPrev.Image = Properties.Resources.previous;
-            butPrev.Location = new Point(484, 6);
+            butPrev.Location = new Point(488, 4);
             butPrev.Margin = new Padding(0);
             butPrev.Name = "butPrev";
-            butPrev.Size = new Size(50, 38);
+            butPrev.Size = new Size(50, 35);
             butPrev.SizeMode = PictureBoxSizeMode.Zoom;
             butPrev.TabIndex = 3;
             butPrev.TabStop = false;
@@ -316,10 +316,10 @@
             // 
             butPlayPause.Anchor = AnchorStyles.Bottom;
             butPlayPause.Image = Properties.Resources.play;
-            butPlayPause.Location = new Point(562, 6);
+            butPlayPause.Location = new Point(567, 4);
             butPlayPause.Margin = new Padding(0);
             butPlayPause.Name = "butPlayPause";
-            butPlayPause.Size = new Size(50, 38);
+            butPlayPause.Size = new Size(50, 35);
             butPlayPause.SizeMode = PictureBoxSizeMode.Zoom;
             butPlayPause.TabIndex = 4;
             butPlayPause.TabStop = false;
@@ -331,10 +331,10 @@
             // 
             butNext.Anchor = AnchorStyles.Bottom;
             butNext.Image = Properties.Resources.next;
-            butNext.Location = new Point(640, 6);
+            butNext.Location = new Point(646, 4);
             butNext.Margin = new Padding(0);
             butNext.Name = "butNext";
-            butNext.Size = new Size(50, 38);
+            butNext.Size = new Size(50, 35);
             butNext.SizeMode = PictureBoxSizeMode.Zoom;
             butNext.TabIndex = 5;
             butNext.TabStop = false;
@@ -346,10 +346,10 @@
             // 
             butStop.Anchor = AnchorStyles.Bottom;
             butStop.Image = Properties.Resources.stop;
-            butStop.Location = new Point(721, 6);
+            butStop.Location = new Point(726, 4);
             butStop.Margin = new Padding(0);
             butStop.Name = "butStop";
-            butStop.Size = new Size(50, 38);
+            butStop.Size = new Size(50, 35);
             butStop.SizeMode = PictureBoxSizeMode.Zoom;
             butStop.TabIndex = 6;
             butStop.TabStop = false;
@@ -364,6 +364,8 @@
             tlpVolumeSlider.ColumnCount = 2;
             tlpVolumeSlider.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 0F));
             tlpVolumeSlider.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tlpVolumeSlider.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tlpVolumeSlider.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tlpVolumeSlider.Controls.Add(labelVolumePercent, 0, 0);
             tlpVolumeSlider.Dock = DockStyle.Fill;
             tlpVolumeSlider.Location = new Point(0, 0);
@@ -371,7 +373,8 @@
             tlpVolumeSlider.Name = "tlpVolumeSlider";
             tlpVolumeSlider.RowCount = 1;
             tlpVolumeSlider.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tlpVolumeSlider.Size = new Size(236, 44);
+            tlpVolumeSlider.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tlpVolumeSlider.Size = new Size(237, 39);
             tlpVolumeSlider.TabIndex = 7;
             // 
             // labelVolumePercent
@@ -382,7 +385,7 @@
             labelVolumePercent.Location = new Point(2, 2);
             labelVolumePercent.Margin = new Padding(0);
             labelVolumePercent.Name = "labelVolumePercent";
-            labelVolumePercent.Size = new Size(1, 40);
+            labelVolumePercent.Size = new Size(1, 35);
             labelVolumePercent.TabIndex = 0;
             labelVolumePercent.Text = "label1";
             labelVolumePercent.TextAlign = ContentAlignment.MiddleCenter;
@@ -399,113 +402,15 @@
             timerMainTrack.Interval = 1000;
             timerMainTrack.Tick += timerMainTrack_Tick;
             // 
-            // butVolume
-            // 
-            butVolume.Anchor = AnchorStyles.Bottom;
-            butVolume.Image = Properties.Resources.volumeon;
-            butVolume.Location = new Point(250, 9);
-            butVolume.Margin = new Padding(0);
-            butVolume.Name = "butVolume";
-            butVolume.Size = new Size(50, 35);
-            butVolume.SizeMode = PictureBoxSizeMode.Zoom;
-            butVolume.TabIndex = 0;
-            butVolume.TabStop = false;
-            // 
-            // butFolder
-            // 
-            butFolder.Anchor = AnchorStyles.Bottom;
-            butFolder.Image = Properties.Resources.folder;
-            butFolder.Location = new Point(328, 9);
-            butFolder.Margin = new Padding(0);
-            butFolder.Name = "butFolder";
-            butFolder.Size = new Size(50, 35);
-            butFolder.SizeMode = PictureBoxSizeMode.Zoom;
-            butFolder.TabIndex = 1;
-            butFolder.TabStop = false;
-            // 
-            // butMode
-            // 
-            butMode.Anchor = AnchorStyles.Bottom;
-            butMode.Image = Properties.Resources.random;
-            butMode.Location = new Point(406, 9);
-            butMode.Margin = new Padding(0);
-            butMode.Name = "butMode";
-            butMode.Size = new Size(50, 35);
-            butMode.SizeMode = PictureBoxSizeMode.Zoom;
-            butMode.TabIndex = 2;
-            butMode.TabStop = false;
-            // 
-            // butPrev
-            // 
-            butPrev.Anchor = AnchorStyles.Bottom;
-            butPrev.Image = Properties.Resources.previous;
-            butPrev.Location = new Point(484, 9);
-            butPrev.Margin = new Padding(0);
-            butPrev.Name = "butPrev";
-            butPrev.Size = new Size(50, 35);
-            butPrev.SizeMode = PictureBoxSizeMode.Zoom;
-            butPrev.TabIndex = 3;
-            butPrev.TabStop = false;
-            // 
-            // butPlayPause
-            // 
-            butPlayPause.Anchor = AnchorStyles.Bottom;
-            butPlayPause.Image = Properties.Resources.play;
-            butPlayPause.Location = new Point(562, 9);
-            butPlayPause.Margin = new Padding(0);
-            butPlayPause.Name = "butPlayPause";
-            butPlayPause.Size = new Size(50, 35);
-            butPlayPause.SizeMode = PictureBoxSizeMode.Zoom;
-            butPlayPause.TabIndex = 4;
-            butPlayPause.TabStop = false;
-            // 
-            // butNext
-            // 
-            butNext.Anchor = AnchorStyles.Bottom;
-            butNext.Image = Properties.Resources.next;
-            butNext.Location = new Point(640, 9);
-            butNext.Margin = new Padding(0);
-            butNext.Name = "butNext";
-            butNext.Size = new Size(50, 35);
-            butNext.SizeMode = PictureBoxSizeMode.Zoom;
-            butNext.TabIndex = 5;
-            butNext.TabStop = false;
-            // 
-            // butStop
-            // 
-            butStop.Anchor = AnchorStyles.Bottom;
-            butStop.Image = Properties.Resources.stop;
-            butStop.Location = new Point(721, 9);
-            butStop.Margin = new Padding(0);
-            butStop.Name = "butStop";
-            butStop.Size = new Size(50, 35);
-            butStop.SizeMode = PictureBoxSizeMode.Zoom;
-            butStop.TabIndex = 6;
-            butStop.TabStop = false;
-            // 
-            // tlpVolumeSlider
-            // 
-            tlpVolumeSlider.ColumnCount = 2;
-            tlpVolumeSlider.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tlpVolumeSlider.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tlpVolumeSlider.Dock = DockStyle.Fill;
-            tlpVolumeSlider.Location = new Point(0, 0);
-            tlpVolumeSlider.Margin = new Padding(0);
-            tlpVolumeSlider.Name = "tlpVolumeSlider";
-            tlpVolumeSlider.RowCount = 1;
-            tlpVolumeSlider.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tlpVolumeSlider.Size = new Size(236, 44);
-            tlpVolumeSlider.TabIndex = 7;
-            // 
-            // formMain
+            // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(804, 450);
             Controls.Add(tlpBar);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Name = "formMain";
+            Name = "Main";
             Text = "ListenEverywhere";
             Load += Main_Load;
             tlpBar.ResumeLayout(false);

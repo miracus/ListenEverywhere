@@ -163,6 +163,16 @@ namespace ListenEverywhere.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap volumeoff {
+            get {
+                object obj = ResourceManager.GetObject("volumeoff", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap volumeon {
             get {
                 object obj = ResourceManager.GetObject("volumeon", resourceCulture);
