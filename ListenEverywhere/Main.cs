@@ -15,6 +15,17 @@ namespace ListenEverywhere
         bool init = false;
         Image prevImage;
         private AudioTrackItem currentAudioTrackItem;
+        float volumeLevel = 0.5f;
+        private Image playImage;
+        private Image pauseImage;
+        private Image randomImage;
+        private Image repeatImage;
+        private Image volumeOnImage;
+        private Image volumeOffImage;
+        private string currentTimeFormat = @"hh\:mm\:ss";
+        private string totalTimeFormat = @"hh\:mm\:ss";
+        private string progressFormat = "{0} ({1}%)";
+
 
         #endregion
         public Main()
@@ -22,12 +33,23 @@ namespace ListenEverywhere
             InitializeComponent();
             Properties.Settings.Default.butMode = "line";
             Properties.Settings.Default.butVolume = "on";
+
             audioTrackItemList = new List<AudioTrackItem>();
         }
 
         #region Load Events
         private void Main_Load(object sender, EventArgs e)
         {
+            labelVolumePercent.Text = "";
+            tlpVolumeSlider.ColumnStyles[0].Width = (int)(volumeLevel * 100);
+            tlpVolumeSlider.ColumnStyles[1].Width = 100 - (int)(volumeLevel * 100);
+
+            playImage = Properties.Resources.play;
+            pauseImage = Properties.Resources.pause;
+            randomImage = Properties.Resources.random;
+            repeatImage = Properties.Resources.repeat;
+            volumeOnImage = Properties.Resources.volumeon;
+            volumeOffImage = Properties.Resources.volumeoff;
 
             Properties.Settings.Default.folderPath = Directory.GetDirectories("Music/")[0];
             string[] dirs = Directory.GetDirectories("./Music");
@@ -115,7 +137,6 @@ namespace ListenEverywhere
         }
 
         #endregion
-
         #region Hover Play Button
 
         AudioTrackItem hover;
@@ -133,7 +154,6 @@ namespace ListenEverywhere
         }
 
         #endregion
-
         #region Play and Mode
 
         AudioTrackItem play;
@@ -156,7 +176,8 @@ namespace ListenEverywhere
                         Properties.Settings.Default.modePlay = "Play";
                         audioItem.IsPlaying = false;
                         audioItem.Picture = prevImage;
-                    } else
+                    }
+                    else
                     {
                         audioItem.ButtonPlay = true;
                     }
@@ -168,14 +189,6 @@ namespace ListenEverywhere
                 tlpBar.RowStyles[1].Height = 25F;
                 Main_Play(track);
             }
-
-            //показати бар після відтворення
-            //RowStyle firstRowStyle = mainTable1.RowStyles[0];
-            //firstRowStyle.SizeType = SizeType.Percent;
-            //firstRowStyle.Height = 75F;
-            //RowStyle secondRowStyle = mainTable1.RowStyles[1];
-            //secondRowStyle.SizeType = SizeType.Percent;
-            //secondRowStyle.Height = 25F;
         }
 
         public void Main_Play(AudioTrackItem track)
@@ -261,13 +274,36 @@ namespace ListenEverywhere
             }
             else if (sender == butNext)
             {
-                int index = flpTrack.Controls.IndexOf(play);
-                if (index + 1 == flpTrack.Controls.Count)
+
+                if (Properties.Settings.Default.butMode == "line")
                 {
-                    index = -1;
+                    int index = flpTrack.Controls.IndexOf(play);
+                    if (index + 1 == flpTrack.Controls.Count)
+                    {
+                        index = -1;
+                    }
+                    Control nextTrack = flpTrack.Controls[index + 1];
+                    Main_NewTrack_MusicPlay(nextTrack, e);
                 }
-                Control nextTrack = flpTrack.Controls[index + 1];
-                Main_NewTrack_MusicPlay(nextTrack, e);
+                else if (Properties.Settings.Default.butMode == "random")
+                {
+                    Random random = new Random();
+                    int index = flpTrack.Controls.IndexOf(play);
+                    int rand = random.Next(0, flpTrack.Controls.Count);
+                    if (rand != index)
+                    {
+                        Control nextTrack = flpTrack.Controls[rand];
+                        Main_NewTrack_MusicPlay(nextTrack, e);
+                    }
+                    else
+                    {
+                        Control nextTrack = flpTrack.Controls[index - 1];
+                        Main_NewTrack_MusicPlay(nextTrack, e);
+                    }
+
+                }
+
+
             }
             else if (sender == butPrev)
             {
@@ -307,11 +343,13 @@ namespace ListenEverywhere
                 if (Properties.Settings.Default.butVolume == "on")
                 {
                     Properties.Settings.Default.butVolume = "off";
+                    _wavePlayer.Volume = 0f;
                     return;
                 }
                 if (Properties.Settings.Default.butVolume == "off")
                 {
                     Properties.Settings.Default.butVolume = "on";
+                    _wavePlayer.Volume = volumeLevel;
                     return;
                 }
             }
@@ -335,34 +373,34 @@ namespace ListenEverywhere
         {
             if (Properties.Settings.Default.modePlay == "Pause")
             {
-                butPlayPause.Image = Properties.Resources.play;
+                butPlayPause.Image = playImage;
             }
             if (Properties.Settings.Default.modePlay == "Play")
             {
-                butPlayPause.Image = Properties.Resources.pause;
+                butPlayPause.Image = pauseImage;
             }
 
             if (Properties.Settings.Default.butMode == "line")
             {
-                butMode.Image = Properties.Resources.random;
+                butMode.Image = randomImage;
             }
             if (Properties.Settings.Default.butMode == "random")
             {
-                butMode.Image = Properties.Resources.repeat;
+                butMode.Image = repeatImage;
             }
 
             if (Properties.Settings.Default.butVolume == "on")
             {
-                butVolume.Image = Properties.Resources.volumeoff;
+                butVolume.Image = volumeOffImage;
             }
             if (Properties.Settings.Default.butVolume == "off")
             {
-                butVolume.Image = Properties.Resources.volumeon;
+                butVolume.Image = volumeOnImage;
             }
 
         }
 
-        private void timerMainTrack_Tick(object sender, EventArgs e)
+    private void timerMainTrack_Tick(object sender, EventArgs e)
         {
             if (_wavePlayer != null && _audioFileReader != null)
             {
@@ -378,9 +416,10 @@ namespace ListenEverywhere
                 currentTimeValue = _audioFileReader.CurrentTime;
                 totalTimeValue = _audioFileReader.TotalTime;
                 double percentage = (currentTimeValue.TotalSeconds / totalTimeValue.TotalSeconds) * 100.0;
-                int roundedPercentage = (int)Math.Round(percentage);
-                string currentTimeText = currentTimeValue.ToString(@"hh\:mm\:ss");
-                string totalTimeText = totalTimeValue.ToString(@"hh\:mm\:ss");
+                int roundedPercentage = (int)(percentage + 0.5);
+                string currentTimeText = currentTimeValue.ToString(currentTimeFormat);
+                string totalTimeText = totalTimeValue.ToString(totalTimeFormat);
+                string progressText = string.Format(progressFormat, currentTimeText, roundedPercentage);
                 if (roundedPercentage == 100)
                 {
                     int index = flpTrack.Controls.IndexOf(play);
@@ -391,14 +430,14 @@ namespace ListenEverywhere
                     Control nextTrack = flpTrack.Controls[index + 1];
                     Main_NewTrack_MusicPlay(nextTrack, e);
                 }
-                string progressText = $"{currentTimeText} ({roundedPercentage}%)";
                 labelCurTimeTrack.Text = progressText;
                 labelTotTimeTrack.Text = totalTimeText;
                 tlpTrackDuration.ColumnStyles[0].Width = (int)percentage;
                 tlpTrackDuration.ColumnStyles[1].Width = 100 - (int)percentage;
                 labelDescriptionTrack.Text = Properties.Settings.Default.descriptionSong;
 
-                
+                string volumeText = (_wavePlayer.Volume * 100).ToString("0") + "%";
+                labelVolumePercent.Text = volumeText;
             }
         }
         #endregion
@@ -406,9 +445,6 @@ namespace ListenEverywhere
 
         #endregion
         #region Button Audio Track Bar Animation
-
-
-
         private void ButtonControlAnimationEnter(object sender, EventArgs e)
         {
 
@@ -421,6 +457,19 @@ namespace ListenEverywhere
             pictureBox = (PictureBox)sender;
             pictureBox.Anchor = AnchorStyles.Bottom;
         }
+        private void tlpVolumeSlider_MouseClick(object sender, MouseEventArgs e)
+        {
+            double percent = (double)e.X / tlpVolumeSlider.Width;
+            volumeLevel = (float)percent;
+            _wavePlayer.Volume = volumeLevel;
+            Properties.Settings.Default.levelVolume = (int)(percent * 100);
+
+            tlpVolumeSlider.ColumnStyles[0].Width = (int)(percent * 100);
+            tlpVolumeSlider.ColumnStyles[1].Width = 100 - (int)(percent * 100);
+
+        }
         #endregion
+
+
     }
 }

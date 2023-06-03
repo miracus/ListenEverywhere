@@ -18,6 +18,8 @@ namespace ListenEverywhere.CustomElements
         List<AudioTrackItem> audioTrackItemList;
         IWavePlayer? _wavePlayer;
         public bool ButtonVisible { get; set; }
+        private Image pauseImage = Properties.Resources.pause;
+        private Image playImage = Properties.Resources.play;
         public bool ButtonPlay { get; set; }
         public event EventHandler Pause;
         public event EventHandler PlayAfterPause;
@@ -34,37 +36,16 @@ namespace ListenEverywhere.CustomElements
             AudioRightItem_RecursiveHandlerDoubleClick(itemArea);
         }
 
-        
-
-        public void UpdatePlayButtonImage()
-        {
-            if (ButtonPlay)
-            {
-                playButton.BackgroundImage = Properties.Resources.pause;
-            }
-            else
-            {
-                playButton.BackgroundImage = Properties.Resources.play;
-            }
-        }
 
         #region Timers
         private void AudioTrack_display_Tick(object sender, EventArgs e)
         {
+            var playButton = this.playButton;
 
             if (Properties.Settings.Default.modePlay != "Stop")
-            { 
-                if (ButtonPlay)
-                {
-                    playButton.BackgroundImage = Properties.Resources.pause;
-                }
-                else
-                {
-                    playButton.BackgroundImage = Properties.Resources.play;
-                }
+            {
+                playButton.BackgroundImage = ButtonPlay ? pauseImage : playImage;
             }
-
-
 
             if (ButtonVisible)
             {
@@ -89,6 +70,7 @@ namespace ListenEverywhere.CustomElements
                 }
             }
         }
+
 
         #endregion
         #region Play Button
@@ -195,8 +177,6 @@ namespace ListenEverywhere.CustomElements
         }
         string filePath;
 
-
-
         [Category("Властивості трека")]
         public string FilePath
         {
@@ -237,6 +217,8 @@ namespace ListenEverywhere.CustomElements
                 playButton.BackgroundImage = value;
             }
         }
+
+
         #endregion
 
     }

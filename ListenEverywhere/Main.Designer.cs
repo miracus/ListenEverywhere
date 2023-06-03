@@ -98,7 +98,7 @@
             tlpLists.Name = "tlpLists";
             tlpLists.RowCount = 1;
             tlpLists.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tlpLists.Size = new Size(792, 324);
+            tlpLists.Size = new Size(792, 435);
             tlpLists.TabIndex = 0;
             // 
             // flpTrack
@@ -108,7 +108,7 @@
             flpTrack.Location = new Point(237, 0);
             flpTrack.Margin = new Padding(0);
             flpTrack.Name = "flpTrack";
-            flpTrack.Size = new Size(555, 324);
+            flpTrack.Size = new Size(555, 435);
             flpTrack.TabIndex = 0;
             // 
             // flpAlbom
@@ -118,7 +118,7 @@
             flpAlbom.Location = new Point(0, 0);
             flpAlbom.Margin = new Padding(0);
             flpAlbom.Name = "flpAlbom";
-            flpAlbom.Size = new Size(237, 324);
+            flpAlbom.Size = new Size(237, 435);
             flpAlbom.TabIndex = 1;
             // 
             // tlpBarElements
@@ -129,14 +129,14 @@
             tlpBarElements.Controls.Add(tlpLabelsTrack, 0, 1);
             tlpBarElements.Controls.Add(tlpControlElement, 0, 2);
             tlpBarElements.Dock = DockStyle.Fill;
-            tlpBarElements.Location = new Point(3, 336);
+            tlpBarElements.Location = new Point(3, 447);
             tlpBarElements.Margin = new Padding(0);
             tlpBarElements.Name = "tlpBarElements";
             tlpBarElements.RowCount = 3;
             tlpBarElements.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
             tlpBarElements.RowStyles.Add(new RowStyle(SizeType.Percent, 40F));
             tlpBarElements.RowStyles.Add(new RowStyle(SizeType.Percent, 40F));
-            tlpBarElements.Size = new Size(798, 111);
+            tlpBarElements.Size = new Size(798, 1);
             tlpBarElements.TabIndex = 1;
             // 
             // tlpTrackDuration
@@ -151,7 +151,7 @@
             tlpTrackDuration.Name = "tlpTrackDuration";
             tlpTrackDuration.RowCount = 1;
             tlpTrackDuration.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tlpTrackDuration.Size = new Size(798, 22);
+            tlpTrackDuration.Size = new Size(798, 1);
             tlpTrackDuration.TabIndex = 0;
             tlpTrackDuration.MouseClick += tlpProgress_MouseClick;
             // 
@@ -163,7 +163,7 @@
             labelDuration.ForeColor = Color.White;
             labelDuration.Location = new Point(3, 0);
             labelDuration.Name = "labelDuration";
-            labelDuration.Size = new Size(1, 22);
+            labelDuration.Size = new Size(1, 1);
             labelDuration.TabIndex = 0;
             labelDuration.MouseClick += tlpProgress_MouseClick;
             // 
@@ -177,11 +177,11 @@
             tlpLabelsTrack.Controls.Add(labelDescriptionTrack, 1, 0);
             tlpLabelsTrack.Controls.Add(labelCurTimeTrack, 0, 0);
             tlpLabelsTrack.Dock = DockStyle.Fill;
-            tlpLabelsTrack.Location = new Point(3, 25);
+            tlpLabelsTrack.Location = new Point(3, 3);
             tlpLabelsTrack.Name = "tlpLabelsTrack";
             tlpLabelsTrack.RowCount = 1;
             tlpLabelsTrack.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tlpLabelsTrack.Size = new Size(792, 38);
+            tlpLabelsTrack.Size = new Size(792, 1);
             tlpLabelsTrack.TabIndex = 1;
             // 
             // labelTotTimeTrack
@@ -192,7 +192,7 @@
             labelTotTimeTrack.ForeColor = SystemColors.ActiveCaption;
             labelTotTimeTrack.Location = new Point(636, 0);
             labelTotTimeTrack.Name = "labelTotTimeTrack";
-            labelTotTimeTrack.Size = new Size(153, 38);
+            labelTotTimeTrack.Size = new Size(153, 1);
             labelTotTimeTrack.TabIndex = 0;
             labelTotTimeTrack.Text = "time";
             labelTotTimeTrack.TextAlign = ContentAlignment.TopRight;
@@ -206,7 +206,7 @@
             labelDescriptionTrack.Location = new Point(158, 0);
             labelDescriptionTrack.Margin = new Padding(0);
             labelDescriptionTrack.Name = "labelDescriptionTrack";
-            labelDescriptionTrack.Size = new Size(475, 38);
+            labelDescriptionTrack.Size = new Size(475, 1);
             labelDescriptionTrack.TabIndex = 1;
             labelDescriptionTrack.Text = "descriptionTrack";
             labelDescriptionTrack.TextAlign = ContentAlignment.MiddleCenter;
@@ -219,7 +219,7 @@
             labelCurTimeTrack.ForeColor = SystemColors.ActiveCaption;
             labelCurTimeTrack.Location = new Point(3, 0);
             labelCurTimeTrack.Name = "labelCurTimeTrack";
-            labelCurTimeTrack.Size = new Size(152, 38);
+            labelCurTimeTrack.Size = new Size(152, 1);
             labelCurTimeTrack.TabIndex = 2;
             labelCurTimeTrack.Text = "time";
             // 
@@ -245,18 +245,18 @@
             tlpControlElement.Controls.Add(butStop, 7, 0);
             tlpControlElement.Controls.Add(tlpVolumeSlider, 0, 0);
             tlpControlElement.Dock = DockStyle.Fill;
-            tlpControlElement.Location = new Point(3, 69);
+            tlpControlElement.Location = new Point(3, 3);
             tlpControlElement.Name = "tlpControlElement";
             tlpControlElement.RowCount = 1;
             tlpControlElement.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tlpControlElement.Size = new Size(792, 39);
+            tlpControlElement.Size = new Size(792, 1);
             tlpControlElement.TabIndex = 2;
             // 
             // butVolume
             // 
             butVolume.Anchor = AnchorStyles.Bottom;
             butVolume.Image = Properties.Resources.volumeon;
-            butVolume.Location = new Point(251, 4);
+            butVolume.Location = new Point(251, 0);
             butVolume.Margin = new Padding(0);
             butVolume.Name = "butVolume";
             butVolume.Size = new Size(50, 35);
@@ -271,7 +271,7 @@
             // 
             butFolder.Anchor = AnchorStyles.Bottom;
             butFolder.Image = Properties.Resources.folder;
-            butFolder.Location = new Point(330, 4);
+            butFolder.Location = new Point(330, 0);
             butFolder.Margin = new Padding(0);
             butFolder.Name = "butFolder";
             butFolder.Size = new Size(50, 35);
@@ -286,7 +286,7 @@
             // 
             butMode.Anchor = AnchorStyles.Bottom;
             butMode.Image = Properties.Resources.random;
-            butMode.Location = new Point(409, 4);
+            butMode.Location = new Point(409, 0);
             butMode.Margin = new Padding(0);
             butMode.Name = "butMode";
             butMode.Size = new Size(50, 35);
@@ -301,7 +301,7 @@
             // 
             butPrev.Anchor = AnchorStyles.Bottom;
             butPrev.Image = Properties.Resources.previous;
-            butPrev.Location = new Point(488, 4);
+            butPrev.Location = new Point(488, 0);
             butPrev.Margin = new Padding(0);
             butPrev.Name = "butPrev";
             butPrev.Size = new Size(50, 35);
@@ -316,7 +316,7 @@
             // 
             butPlayPause.Anchor = AnchorStyles.Bottom;
             butPlayPause.Image = Properties.Resources.play;
-            butPlayPause.Location = new Point(567, 4);
+            butPlayPause.Location = new Point(567, 0);
             butPlayPause.Margin = new Padding(0);
             butPlayPause.Name = "butPlayPause";
             butPlayPause.Size = new Size(50, 35);
@@ -331,7 +331,7 @@
             // 
             butNext.Anchor = AnchorStyles.Bottom;
             butNext.Image = Properties.Resources.next;
-            butNext.Location = new Point(646, 4);
+            butNext.Location = new Point(646, 0);
             butNext.Margin = new Padding(0);
             butNext.Name = "butNext";
             butNext.Size = new Size(50, 35);
@@ -346,7 +346,7 @@
             // 
             butStop.Anchor = AnchorStyles.Bottom;
             butStop.Image = Properties.Resources.stop;
-            butStop.Location = new Point(726, 4);
+            butStop.Location = new Point(726, 0);
             butStop.Margin = new Padding(0);
             butStop.Name = "butStop";
             butStop.Size = new Size(50, 35);
@@ -374,8 +374,9 @@
             tlpVolumeSlider.RowCount = 1;
             tlpVolumeSlider.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tlpVolumeSlider.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tlpVolumeSlider.Size = new Size(237, 39);
+            tlpVolumeSlider.Size = new Size(237, 1);
             tlpVolumeSlider.TabIndex = 7;
+            tlpVolumeSlider.MouseClick += tlpVolumeSlider_MouseClick;
             // 
             // labelVolumePercent
             // 
@@ -385,15 +386,15 @@
             labelVolumePercent.Location = new Point(2, 2);
             labelVolumePercent.Margin = new Padding(0);
             labelVolumePercent.Name = "labelVolumePercent";
-            labelVolumePercent.Size = new Size(1, 35);
+            labelVolumePercent.Size = new Size(1, 1);
             labelVolumePercent.TabIndex = 0;
             labelVolumePercent.Text = "label1";
             labelVolumePercent.TextAlign = ContentAlignment.MiddleCenter;
+            labelVolumePercent.MouseClick += tlpVolumeSlider_MouseClick;
             // 
             // timerMainAnimation
             // 
             timerMainAnimation.Enabled = true;
-            timerMainAnimation.Interval = 10;
             timerMainAnimation.Tick += timerMainAnimation_Tick;
             // 
             // timerMainTrack
